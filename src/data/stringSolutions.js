@@ -4,9 +4,9 @@
 let solutions = {};
 
 solutions.helloName = function (name) {
-    return `Hello ${name}!`;
-  };
-  
+  return `Hello ${name}!`;
+};
+
 solutions.makeAbba = function (a, b) {
   return a + b + b + a;
 };
@@ -43,10 +43,7 @@ solutions.nonStart = function (a, b) {
 };
 
 solutions.firstHalf = function (str) {
-  if (str.length % 2 == 0) {
-    return str.substring(0, str.length);
-  }
-  return str;
+  return str.substring(0, str.length / 2);
 };
 
 solutions.firstTwo = function (str) {
@@ -83,7 +80,7 @@ solutions.theEnd = function (str, front) {
 
 solutions.withoutEnd2 = function (str) {
   if (str.length <= 1) {
-    return '';
+    return "";
   }
   return str.substring(1, str.length - 1);
 };
@@ -98,7 +95,7 @@ solutions.middleTwo = function (str) {
 };
 
 solutions.endsLy = function (str) {
-  if (str.substring(str.length - 2, str.length) == 'ly') {
+  if (str.substring(str.length - 2, str.length) == "ly") {
     return true;
   } else {
     return false;
@@ -133,12 +130,11 @@ solutions.middleThree = function (str) {
 
 solutions.hasBad = function (str) {
   if (str.length == 3) {
-    return str.substring(0, 3) == 'bad';
+    return str.substring(0, 3) == "bad";
   }
 
   if (str.length >= 4) {
-    return str.substring(0, 3) == 'bad' ||
-            str.substring(1, 4) == 'bad';
+    return str.substring(0, 3) == "bad" || str.substring(1, 4) == "bad";
   }
 
   return false;
@@ -146,7 +142,7 @@ solutions.hasBad = function (str) {
 
 solutions.atFirst = function (str) {
   if (str.length == 0) {
-    return '@@';
+    return "@@";
   }
 
   if (str.length == 1) {
@@ -157,15 +153,15 @@ solutions.atFirst = function (str) {
 };
 
 solutions.lastChars = function (a, b) {
-  let res = '';
+  let res = "";
   if (a.length == 0) {
-    res += '@';
+    res += "@";
   } else {
     res += a.charAt(0);
   }
 
   if (b.length == 0) {
-    res += '@';
+    res += "@";
   } else {
     res += b.charAt(b.length - 1);
   }
@@ -186,20 +182,23 @@ solutions.lastTwo = function (str) {
     return str;
   }
 
-  return str.substring(0, str.length - 2) + str.charAt(str.length - 1) +
-        str.charAt(str.length - 2);
+  return (
+    str.substring(0, str.length - 2) +
+    str.charAt(str.length - 1) +
+    str.charAt(str.length - 2)
+  );
 };
 
 solutions.seeColor = function (str) {
-  if (str.length >= 3 && str.substring(0, 3) == 'red') {
-    return 'red';
+  if (str.length >= 3 && str.substring(0, 3) == "red") {
+    return "red";
   }
 
-  if (str.length >= 4 && str.substring(0, 4) == 'blue') {
-    return 'blue';
+  if (str.length >= 4 && str.substring(0, 4) == "blue") {
+    return "blue";
   }
 
-  return '';
+  return "";
 };
 
 solutions.frontAgain = function (str) {
@@ -225,8 +224,7 @@ solutions.extraFront = function (str) {
 };
 
 solutions.without2 = function (str) {
-  if (str.length >= 2 &&
-        str.substring(0, 2) == str.substring(str.length - 2)) {
+  if (str.length >= 2 && str.substring(0, 2) == str.substring(str.length - 2)) {
     return str.substring(2);
   }
 
@@ -234,16 +232,16 @@ solutions.without2 = function (str) {
 };
 
 solutions.deFront = function (str) {
-  if (str.length == 1 && str.charAt(0) != 'a') {
-    return '';
+  if (str.length == 1 && str.charAt(0) != "a") {
+    return "";
   }
 
   if (str.length >= 2) {
-    if (str.charAt(0) != 'a' && str.charAt(1) != 'b') {
+    if (str.charAt(0) != "a" && str.charAt(1) != "b") {
       return str.substring(2);
-    } else if (str.charAt(0) != 'a') {
+    } else if (str.charAt(0) != "a") {
       return str.substring(1);
-    } else if (str.charAt(1) != 'b') {
+    } else if (str.charAt(1) != "b") {
       return `a${str.substring(2)}`;
     }
   }
@@ -252,21 +250,25 @@ solutions.deFront = function (str) {
 };
 
 solutions.startWord = function (str, word) {
-  if (str.length >= word.length &&
-        str.substring(1, word.length) == (word.substring(1))) {
+  if (
+    str.length >= word.length &&
+    str.substring(1, word.length) == word.substring(1)
+  ) {
     return str.substring(0, word.length);
   }
 
-  return '';
+  return "";
 };
 
 solutions.withoutX = function (str) {
   let start = 0;
   let end = str.length;
 
-  if (str.length > 0 && str.charAt(0) == 'x') { start = 1; }
+  if (str.length > 0 && str.charAt(0) == "x") {
+    start = 1;
+  }
 
-  if (str.length > 1 && str.charAt(str.length - 1) == 'x') {
+  if (str.length > 1 && str.charAt(str.length - 1) == "x") {
     end--;
   }
 
@@ -274,16 +276,16 @@ solutions.withoutX = function (str) {
 };
 
 solutions.withoutX2 = function (str) {
-  if (str.length == 1 && str.charAt(0) == 'x') {
-    return '';
+  if (str.length == 1 && str.charAt(0) == "x") {
+    return "";
   }
 
   if (str.length >= 2) {
-    if (str.charAt(0) == 'x' && str.charAt(1) == 'x') {
+    if (str.charAt(0) == "x" && str.charAt(1) == "x") {
       return str.substring(2);
-    } else if (str.charAt(0) == 'x') {
+    } else if (str.charAt(0) == "x") {
       return str.substring(1);
-    } else if (str.charAt(1) == 'x') {
+    } else if (str.charAt(1) == "x") {
       return str.charAt(0) + str.substring(2);
     }
   }
@@ -296,298 +298,289 @@ solutions.withoutX2 = function (str) {
 solutions.doubleChar = function (str) {
   let dStr = "";
 
-  for (let i = 0; i < str.length; i++){
-      dStr += str[i]+str[i];
+  for (let i = 0; i < str.length; i++) {
+    dStr += str[i] + str[i];
   }
   return dStr;
-}
+};
 
 solutions.countHi = function (str) {
-
   let count = 0;
 
-  for (let i = 0; i < str.length; i++){
-      if (str[i] + str[i+1] == "hi"){
-          count +=1;
-      }
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] + str[i + 1] == "hi") {
+      count += 1;
+    }
   }
   return count;
-
-}
+};
 
 solutions.catDog = function (str) {
   let cat = 0;
   let dog = 0;
 
   for (let i = 0; i < str.length; i++) {
-      if(str.substring(i, i+3) == "cat") {
-          cat += 1;
-      }
-        if(str.substring(i, i+3) == "dog") {
-          dog += 1;
-          }
-
+    if (str.substring(i, i + 3) == "cat") {
+      cat += 1;
     }
-    return cat == dog;
-}
+    if (str.substring(i, i + 3) == "dog") {
+      dog += 1;
+    }
+  }
+  return cat == dog;
+};
 
 solutions.countCode = function (str) {
   let count = 0;
 
-    for (let i = 0; i < str.length; i++){
-        if(str.substring(i, i+2) == "co" && str.substring(i+3, i+4) == "e"){
-            count += 1;
-        }
+  for (let i = 0; i < str.length; i++) {
+    if (str.substring(i, i + 2) == "co" && str.substring(i + 3, i + 4) == "e") {
+      count += 1;
     }
+  }
 
-    return count;
-}
+  return count;
+};
 
 solutions.endOther = function (a, b) {
   let short = "";
   let long = "";
 
-    if (a == b) {
-        return true;
-    }
+  if (a == b) {
+    return true;
+  }
 
-    if (a.length < b.length){
-        short += a.toLowerCase();
-        long += b.toLowerCase();
-    } else {
-        short += b.toLowerCase();
-        long += a.toLowerCase();
-    }
+  if (a.length < b.length) {
+    short += a.toLowerCase();
+    long += b.toLowerCase();
+  } else {
+    short += b.toLowerCase();
+    long += a.toLowerCase();
+  }
 
-    let longEnd = long.substring(long.length -short.length);
+  let longEnd = long.substring(long.length - short.length);
 
-    return longEnd == short;
-}
+  return longEnd == short;
+};
 
 solutions.xyzThere = function (str) {
   let x = "xyz";
-  for (let i = 0; i < str.length; i++){
-    if(str.substring(i, i+3) == x && str.charAt(i-1, i) != "."){
-        return true;
+  for (let i = 0; i < str.length; i++) {
+    if (str.substring(i, i + 3) == x && str.charAt(i - 1, i) != ".") {
+      return true;
     }
   }
-    return false;
-}
+  return false;
+};
 
 solutions.bobThere = function (str) {
-  for (let i = 0; i < str.length; i++){
-      if (str.charAt(i) == "b" && str.charAt(i+2) == "b"){
-          return true;
-      }
+  for (let i = 0; i < str.length; i++) {
+    if (str.charAt(i) == "b" && str.charAt(i + 2) == "b") {
+      return true;
+    }
   }
-    return false;
-}
+  return false;
+};
 
 solutions.xyBalance = function (str) {
-    let y = false;
-    //backwards loop
-    for(let i = str.length - 1; i >= 0; i--) {
-        if(str.charAt(i) == 'y')
-            y = true;
+  let y = false;
+  //backwards loop
+  for (let i = str.length - 1; i >= 0; i--) {
+    if (str.charAt(i) == "y") y = true;
 
-        if(str.charAt(i) == 'x' && !y)
-            return false;
-    }
+    if (str.charAt(i) == "x" && !y) return false;
+  }
 
-    return true;
-}
+  return true;
+};
 
 solutions.mixString = function (a, b) {
-    let large = "";
-    let newStr = "";
+  let large = "";
+  let newStr = "";
 
-    if (a.length > b.length) {
-        large += a.length;
-    } else {
-        large += b.length;
+  if (a.length > b.length) {
+    large += a.length;
+  } else {
+    large += b.length;
+  }
+
+  for (let i = 0; i < large; i++) {
+    if (a[i] != undefined) {
+      newStr += a[i];
     }
-
-    for (let i = 0; i < large; i++) {
-        if (a[i] != undefined) {
-          newStr += a[i];
-        }
-        if (b[i] != undefined){
-            newStr += b[i];
-        }
+    if (b[i] != undefined) {
+      newStr += b[i];
     }
+  }
 
-    return newStr;
-}
+  return newStr;
+};
 
 solutions.repeatEnd = function (str, n) {
-    let retStr = "";
+  let retStr = "";
   let sub = str.substring(str.length - n);
 
-    while (n != 0) {
-        retStr += sub;
-        n--
-    }
+  while (n != 0) {
+    retStr += sub;
+    n--;
+  }
 
-    return retStr;
-}
+  return retStr;
+};
 
 solutions.repeatFront = function (str, n) {
+  let nu = "";
 
-    let nu = "";
+  for (let i = n; i > 0; i--) {
+    nu += str.substring(0, i);
+  }
 
-    for (let i = n; i > 0; i--){
-        nu += str.substring(0, i);
-    }
-
-    return nu;
-}
+  return nu;
+};
 
 solutions.repeatSeparator = function repeatSeparator(word, sep, count) {
   let nu = "";
 
-      if (count == 0){
-        return "";
-      }
+  if (count == 0) {
+    return "";
+  }
 
-
-    for (let i = 0; i < count - 1; i++){
-        nu += word;
-        nu += sep;
-    }
-
+  for (let i = 0; i < count - 1; i++) {
     nu += word;
+    nu += sep;
+  }
 
-    return nu;
-}
+  nu += word;
+
+  return nu;
+};
 
 solutions.prefixAgain = function (str, n) {
-    let prefix = str.substring(0, n);
+  let prefix = str.substring(0, n);
 
-    for (let i = str.length; i > n; i--){
-        if(str.substring(i-n, i) == prefix) {
-            return true;
-        }
+  for (let i = str.length; i > n; i--) {
+    if (str.substring(i - n, i) == prefix) {
+      return true;
     }
-    return false;
-}
+  }
+  return false;
+};
 
 solutions.xyzMiddle = function (str) {
-    if(str.length < 3)
-        return false;
+  if (str.length < 3) return false;
 
-    let start1 = str.length / 2 - 2;
-    let start2 = str.length / 2 - 1;
+  let start1 = str.length / 2 - 2;
+  let start2 = str.length / 2 - 1;
 
-    if(str.length % 2 == 0) {
-        return str.substring(start1, start1 + 3) == "xyz" ||
-            str.substring(start2, start2 + 3) == "xyz";
-    }
+  if (str.length % 2 == 0) {
+    return (
+      str.substring(start1, start1 + 3) == "xyz" ||
+      str.substring(start2, start2 + 3) == "xyz"
+    );
+  }
 
-    return str.substring(start2, start2 + 3) == "xyz";
-}
+  return str.substring(start2, start2 + 3) == "xyz";
+};
 
 solutions.getSandwich = function (str) {
   let temp1 = "";
   let i1 = 0;
-    for (let i = 0; i < str.length; i++){
-        if (str.slice(i, i+5) == "bread") {
-            temp1 = str.slice(i, i+5);
-            i1 = i+5;
-            break;
-        }
+  for (let i = 0; i < str.length; i++) {
+    if (str.slice(i, i + 5) == "bread") {
+      temp1 = str.slice(i, i + 5);
+      i1 = i + 5;
+      break;
     }
+  }
   let temp2 = "";
   let i2 = 0;
-    for (let i = str.length; i >= 0; i--){
-        if (str.slice(i-5, i) == "bread") {
-            temp2 = str.slice(i-5, i);
-            i2 = i-5;
-            break;
-        }
+  for (let i = str.length; i >= 0; i--) {
+    if (str.slice(i - 5, i) == "bread") {
+      temp2 = str.slice(i - 5, i);
+      i2 = i - 5;
+      break;
     }
+  }
 
-    let res = "";
+  let res = "";
 
-    for (let j = i1; j < i2; j++){
-        res += str[j];
-    }
+  for (let j = i1; j < i2; j++) {
+    res += str[j];
+  }
 
-    return res;
-}
+  return res;
+};
 
 solutions.sameStarChar = function (str) {
-
-    for (let i = 1; i < str.length - 1; i++){
-        if (str.charAt(i) == '*' && str.charAt(i-1) != str.charAt(i+1)){
-            return false;
-        }
+  for (let i = 1; i < str.length - 1; i++) {
+    if (str.charAt(i) == "*" && str.charAt(i - 1) != str.charAt(i + 1)) {
+      return false;
     }
-    return true;
-}
+  }
+  return true;
+};
 
 solutions.oneTwo = function (str) {
-    let nust = "";
+  let nust = "";
 
-    for (let i = 0; i < str.length-1; i+= 3){
-        if (str[i+2] != undefined){
-          nust += str[i+1]; //c
-          nust += str[i+2]; //b
-          nust += str[i]; //a
-        }
+  for (let i = 0; i < str.length - 1; i += 3) {
+    if (str[i + 2] != undefined) {
+      nust += str[i + 1]; //c
+      nust += str[i + 2]; //b
+      nust += str[i]; //a
+    }
   }
-    return nust;
-}
+  return nust;
+};
 
 solutions.zipZap = function (str) {
   let nust = "";
-  for (let i = 0; i < str.length; i++){
-    if (str[i-1] != "z" || str[i+1] != "p"){
+  for (let i = 0; i < str.length; i++) {
+    if (str[i - 1] != "z" || str[i + 1] != "p") {
       nust += str[i];
     }
   }
   return nust;
-}
+};
 
 solutions.starOut = function (str) {
-    if(str.length < 1)
-        return "";
+  if (str.length < 1) return "";
 
-    if(str.length == 1) {
-        if(str.charAt(0) == '*')
-            return "";
-        else
-            return str;
+  if (str.length == 1) {
+    if (str.charAt(0) == "*") return "";
+    else return str;
+  }
+
+  let len = str.length;
+  let arr = new Array();
+
+  let count = 0;
+
+  if (str.charAt(0) != "*" && str.charAt(1) != "*") {
+    arr[count] = str.charAt(0);
+    count++;
+  }
+
+  for (let i = 1; i < str.length - 1; i++) {
+    if (
+      str.charAt(i - 1) != "*" &&
+      str.charAt(i) != "*" &&
+      str.charAt(i + 1) != "*"
+    ) {
+      arr[count] = str.charAt(i);
+      count++;
     }
+  }
 
-    let len = str.length;
-    let arr = new Array();
+  if (str.charAt(str.length - 1) != "*" && str.charAt(str.length - 2) != "*") {
+    arr[count] = str.charAt(str.length - 1);
+    count++;
+  }
 
-    let count = 0;
+  let x = arr.toString();
 
-
-    if(str.charAt(0) != '*' && str.charAt(1) != '*') {
-        arr[count] = str.charAt(0);
-        count++;
-    }
-
-    for(let i = 1; i < str.length - 1; i++) {
-        if(str.charAt(i-1)!='*' && str.charAt(i) != '*' &&
-            str.charAt(i+1) != '*') {
-            arr[count] = str.charAt(i);
-            count++;
-        }
-    }
-
-    if(str.charAt(str.length-1) != '*' &&
-        str.charAt(str.length-2) != '*') {
-        arr[count] = str.charAt(str.length - 1);
-        count++;
-    }
-
-    let x = arr.toString();
-
-      return x.replace(/,/g, "");
-}
+  return x.replace(/,/g, "");
+};
 
 solutions.plusOut = function (str, word) {
   let slen = str.length;
@@ -596,91 +589,89 @@ solutions.plusOut = function (str, word) {
 
   for (let i = 0; i < slen; i++) {
     if (i <= slen - wlen) {
-      let tmp = str.substring(i,i+wlen);
+      let tmp = str.substring(i, i + wlen);
       if (tmp == word) {
         fin += word;
-        i += wlen-1;
-      }
-      else
-        fin += "+";
-    }
-    else
-      fin += "+";
+        i += wlen - 1;
+      } else fin += "+";
+    } else fin += "+";
   }
   return fin;
-}
+};
 
-solutions.wordEnds = function (str, word){
+solutions.wordEnds = function (str, word) {
   let slen = str.length;
   let wlen = word.length;
   let res = "";
 
-  if (slen.length < 1){
+  if (slen.length < 1) {
     return str;
   }
 
   for (let i = 0; i < slen; i++) {
-    if (i <= slen - wlen){
-      let temp = str.substring(i, i+wlen);
-      if (temp == word){
-        if (str[i-1] != undefined) {
-          res += str[i-1];
+    if (i <= slen - wlen) {
+      let temp = str.substring(i, i + wlen);
+      if (temp == word) {
+        if (str[i - 1] != undefined) {
+          res += str[i - 1];
         }
-        if (str[i+wlen]){
-          res+= str[i+wlen];
+        if (str[i + wlen]) {
+          res += str[i + wlen];
         }
-        i += wlen-1;
+        i += wlen - 1;
       } else {
-
       }
     } else {
-
     }
   }
   return res;
-}
+};
 
 // String-3
 
-solutions.countYZ = function (str){
-  let count=0;
+solutions.countYZ = function (str) {
+  let count = 0;
   for (let i = 0; i < str.length; i++) {
     if (!str[i].match(/[a-z]/i) || str.charAt(i) == " ") {
-
-        if (str.charAt(i-1).toLowerCase() == "y" || str.charAt(i-1).toLowerCase() == "z"){
+      if (
+        str.charAt(i - 1).toLowerCase() == "y" ||
+        str.charAt(i - 1).toLowerCase() == "z"
+      ) {
         count += 1;
       }
     }
-    if (i == str.length-1) {
-        if (str.charAt(i).toLowerCase() == "y" || str.charAt(i).toLowerCase() == "z"){
+    if (i == str.length - 1) {
+      if (
+        str.charAt(i).toLowerCase() == "y" ||
+        str.charAt(i).toLowerCase() == "z"
+      ) {
         count += 1;
       }
     }
   }
   return count;
-}
+};
 
-solutions.withoutString = function (base, remove){
-
+solutions.withoutString = function (base, remove) {
   let rlen = remove.length;
 
   let res = "";
 
-  for (let i = 0; i < base.length; i++){
-    let subbie = base.substring(i, i+ rlen);
+  for (let i = 0; i < base.length; i++) {
+    let subbie = base.substring(i, i + rlen);
     if (subbie.toLowerCase() != remove.toLowerCase()) {
-        if (base[i] == " " && res.charAt(res.length-1) == " "){
-        }  else {
-            res += base[i];
-        }
-    }  else {
-      i += rlen-1;
+      if (base[i] == " " && res.charAt(res.length - 1) == " ") {
+      } else {
+        res += base[i];
+      }
+    } else {
+      i += rlen - 1;
     }
   }
   return res;
-}
+};
 
-solutions.equalIsNot = function (str){
+solutions.equalIsNot = function (str) {
   let is = "is";
   let not = "not";
 
@@ -688,153 +679,146 @@ solutions.equalIsNot = function (str){
   let notCount = 0;
 
   for (let i = 0; i < str.length; i++) {
-      let checkIs = str.substring(i, i+is.length);
-      let checkNot = str.substring(i, i+not.length);
+    let checkIs = str.substring(i, i + is.length);
+    let checkNot = str.substring(i, i + not.length);
 
-      if (checkIs == is){
-        isCount += 1;
-      }
+    if (checkIs == is) {
+      isCount += 1;
+    }
 
-      if (checkNot == not){
-        notCount += 1;
-      }
+    if (checkNot == not) {
+      notCount += 1;
+    }
   }
 
   return isCount == notCount;
-
-}
+};
 
 solutions.gHappy = function (str) {
-
-  for (let i = 0; i < str.length; i++){
-    if (str[i] == "g" && (str[i-1] != "g" && str[i+1] != "g")){
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == "g" && str[i - 1] != "g" && str[i + 1] != "g") {
       return false;
     }
   }
   return true;
-}
+};
 
 solutions.countTriple = function countTriple(str) {
-
   let count = 0;
 
-  for (let i = 0; i <= str.length-2; i++) {
-    let triple = str.substring(i, i+3);
-    if (triple[0] == triple[1] && triple[1] == triple[2]){
+  for (let i = 0; i <= str.length - 2; i++) {
+    let triple = str.substring(i, i + 3);
+    if (triple[0] == triple[1] && triple[1] == triple[2]) {
       count += 1;
     }
   }
   return count;
-}
+};
 
 solutions.sumDigits = function (str) {
+  let add = (a, b) => a + b;
 
-  let add = (a, b) => a+b;
-
-  let nums = []
+  let nums = [];
 
   for (let i = 0; i < str.length; i++) {
-
     if (Number.isInteger(parseInt(str[i]))) {
-        nums.push(parseInt(str[i]))
+      nums.push(parseInt(str[i]));
     }
   }
 
-    if (nums.length != 0) {
-      return nums.reduce(add);
-    } else {
-      return 0;
-    }
-}
+  if (nums.length != 0) {
+    return nums.reduce(add);
+  } else {
+    return 0;
+  }
+};
 
 solutions.sameEnds = function (string) {
-    let start = Math.ceil(string.length/2);
-    let end = string.length/2;
+  let start = Math.ceil(string.length / 2);
+  let end = string.length / 2;
 
-    for (let i = 0; i < string.length/2; i++){
-      if (string.substring(0, end) == string.substring(start)){
-        return string.substring(0, end);
-      } else {
-          start++;
-          end--
-      }
+  for (let i = 0; i < string.length / 2; i++) {
+    if (string.substring(0, end) == string.substring(start)) {
+      return string.substring(0, end);
+    } else {
+      start++;
+      end--;
     }
+  }
   return "";
-}
+};
 
 solutions.mirrorEnds = function (string) {
-    let result = "";
+  let result = "";
 
-    for (let i = 0; i < string.length; i++) {
-      if (string[i] == string[string.length - i - 1]) {
-        result += string[i]
-      } else {
-        break;
-      }
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] == string[string.length - i - 1]) {
+      result += string[i];
+    } else {
+      break;
     }
+  }
 
-    return result;
-}
+  return result;
+};
 
 solutions.maxBlock = function (str) {
   let count = 0;
   let stick = 1;
 
-  for (let i = 0; i < str.length; i++){
-    if (i < str.length-1 && str[i] == str[i+1]){
+  for (let i = 0; i < str.length; i++) {
+    if (i < str.length - 1 && str[i] == str[i + 1]) {
       stick += 1;
     } else {
       stick = 1;
     }
 
-    if (stick > count){
-      count= stick;
+    if (stick > count) {
+      count = stick;
     }
   }
 
   return count;
-
-}
+};
 
 solutions.sumNumbers = function (str) {
-
   let len = str.length;
   let temp = "";
   let sum = 0;
 
-  for (let i = 0; i < str.length; i++){
-    if (parseInt(str[i])){
-      if (i < len-1 && parseInt(str[i+1])){
-        temp+= str[i]
+  for (let i = 0; i < str.length; i++) {
+    if (parseInt(str[i])) {
+      if (i < len - 1 && parseInt(str[i + 1])) {
+        temp += str[i];
       } else {
-        temp+= str[i]
+        temp += str[i];
         sum += parseInt(temp);
-        temp="";
+        temp = "";
       }
     }
   }
   return sum;
-}
+};
 
 solutions.notReplace = function (str) {
-
   let result = "";
 
-  for (let i = 0; i < str.length; i++){
-        /* using charAt here rather than bracket index, b/c bracket index shows undefined for chars at
+  for (let i = 0; i < str.length; i++) {
+    /* using charAt here rather than bracket index, b/c bracket index shows undefined for chars at
       -1 index, causing error. charAt shows "", so no error*/
-      if ((str.charAt(i-1).match(/[a-z]/i)
-    || i+2 < str.length && str.charAt(i+2).match(/[a-z]/i))){
-        result += str[i];
-      } else if (str.substring(i, i+2) == "is"){
-        result += "is not";
-        i++;
-      } else {
-
-        result += str[i];
-      }
+    if (
+      str.charAt(i - 1).match(/[a-z]/i) ||
+      (i + 2 < str.length && str.charAt(i + 2).match(/[a-z]/i))
+    ) {
+      result += str[i];
+    } else if (str.substring(i, i + 2) == "is") {
+      result += "is not";
+      i++;
+    } else {
+      result += str[i];
     }
-    return result;
-}
+  }
+  return result;
+};
 
 module.exports = solutions;
